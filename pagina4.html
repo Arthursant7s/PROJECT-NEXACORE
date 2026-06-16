@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABUADA DE DIVISÃO</title>
+    <link rel="stylesheet" href="pagina4.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>TABUADA TECH 2</h1>
+    
+    <div class="input-group">
+        <label for="numero">Digite o número (dividendo):</label>
+        <input type="number" id="numero" placeholder="Ex: 10" oninput="calcularDivisao()">
+    </div>
+
+    <div id="resultado" class="tabuada-resultado">
+        <p class="mensagem-status">Digite um número acima para ver a tabuada.</p>
+    </div>
+</div>
+
+<script>
+    function calcularDivisao() {
+        const inputNumero = document.getElementById('numero').value;
+        const divResultado = document.getElementById('resultado');
+        
+        divResultado.innerHTML = '';
+
+        if (inputNumero === '') {
+            divResultado.innerHTML = '<p class="mensagem-status">Digite um número acima para ver a tabuada.</p>';
+            return;
+        }
+
+        const numero = parseFloat(inputNumero);
+
+        // Loop para dividir o número escolhido por números de 1 a 10
+        for (let i = 1; i <= 10; i++) {
+            let resultadoDiv = numero / i;
+            
+            // Tratamento para não encher a tela de casas decimais (ex: 1.333333333)
+            // Se não for um número inteiro, limita a 2 casas decimais
+            if (!Number.isInteger(resultadoDiv)) {
+                resultadoDiv = resultadoDiv.toFixed(2);
+            }
+
+            const linha = document.createElement('div');
+            linha.className = 'linha-tabuada';
+            linha.innerHTML = `<span>${numero} ÷ ${i}</span> <span>= <strong>${resultadoDiv}</strong></span>`;
+            
+            divResultado.appendChild(linha);
+        }
+    }
+</script>
+
+</body>
+</html>

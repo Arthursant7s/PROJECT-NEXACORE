@@ -1,0 +1,92 @@
+
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #00ffaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ff9409;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #30ff64;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00e959;
+            font-weight: 500;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+
+        input[type="number"]:focus {
+            border-color: #ff03ea; /* Cor vermelha/laranja para destacar a divisão */
+        }
+
+        /* Layout em Grid para ficar resumido e elegante */
+        .tabuada-resultado {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .linha-tabuada {
+            background-color: #fdfefe;
+            border: 1px solid #eab30822; /* Borda sutil */
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #444;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .linha-tabuada:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .linha-tabuada strong {
+            color: #e67e22; /* Destaca o resultado em laranja */
+        }
+
+        .mensagem-status {
+            grid-column: span 2;
+            color: #999;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .erro {
+            color: #e74c3c;
+            font-weight: bold;
+        }

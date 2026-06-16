@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABUADA DE ADIÇÃO</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>TABUADA TECH</h1>
+    
+    <div class="input-group">
+        <label for="numero">Digite um número para calcular:</label>
+        <input type="number" id="numero" placeholder="Ex: 7" oninput="calcularTabuada()">
+    </div>
+
+    <div id="resultado" class="tabuada-resultado">
+        <p style="color: #999; text-align: center;">Digite um número acima para ver o resultado.</p>
+    </div>
+</div>
+
+<script>
+    function calcularTabuada() {
+    
+        const inputNumero = document.getElementById('numero').value;
+        const divResultado = document.getElementById('resultado');
+        
+    
+        divResultado.innerHTML = '';
+
+    
+        if (inputNumero === '') {
+            divResultado.innerHTML = '<p style="color: #999; text-align: center;">Digite um número acima para ver o resultado.</p>';
+            return;
+        }
+
+    
+        const numero = parseFloat(inputNumero);
+
+    
+        for (let i = 1; i <= 10; i++) {
+            const resultadoSoma = numero + i;
+            
+
+            const linha = document.createElement('div');
+            linha.className = 'linha-tabuada';
+            linha.innerHTML = `<span>${numero} + ${i}</span> <span>= <strong>${resultadoSoma}</strong></span>`;
+            
+            divResultado.appendChild(linha);
+        }
+    }
+</script>
+
+</body>
+</html>
